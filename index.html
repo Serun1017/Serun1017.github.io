@@ -3,92 +3,222 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>허진수 - 개발자 이력서</title>
+    <title>허진수 - 백엔드 엔지니어 이력서</title>
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         body {
-            background-color: #f4f5f6;
+            background-color: #f0f2f5;
             color: #333;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Pretendard', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
         }
         .resume-wrapper {
-            max-width: 1000px;
+            max-width: 1050px;
             margin: 40px auto;
             background: #fff;
-            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
+            box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
             overflow: hidden;
         }
         .sidebar {
-            background-color: #2c3e50;
-            color: #fff;
-            padding: 40px 30px;
+            background-color: #1a252f;
+            color: #ecf0f1;
+            padding: 50px 40px;
             height: 100%;
         }
         .sidebar a {
             color: #bdc3c7;
             text-decoration: none;
             word-break: break-all;
+            transition: color 0.2s;
         }
         .sidebar a:hover {
-            color: #fff;
+            color: #3498db;
         }
         .profile-image-placeholder {
-            width: 150px;
-            height: 150px;
+            width: 160px;
+            height: 160px;
             border-radius: 50%;
-            background-color: #34495e;
-            border: 3px solid #fff;
-            margin: 0 auto 20px;
+            background-color: #2c3e50;
+            border: 4px solid #34495e;
+            margin: 0 auto 25px;
             display: flex;
             align-items: center;
             justify-content: center;
             color: #7f8c8d;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
+            overflow: hidden;
         }
-        .main-content {
-            padding: 40px;
+        .profile-image-placeholder img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
-        .section-title {
-            border-bottom: 2px solid #2c3e50;
+        .sidebar-heading {
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: #7f8c8d;
+            border-bottom: 1px solid #34495e;
             padding-bottom: 10px;
             margin-bottom: 20px;
-            font-weight: 700;
-            color: #2c3e50;
-            text-transform: uppercase;
+            margin-top: 40px;
         }
-        .project-item {
+        .main-content {
+            padding: 50px 50px 50px 60px;
+        }
+        .section-title {
+            position: relative;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #2c3e50;
             margin-bottom: 25px;
+            padding-bottom: 10px;
         }
-        .project-title {
-            font-weight: 700;
-            font-size: 1.15rem;
-            color: #2c3e50;
+        .section-title::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 4px;
+            background-color: #3498db;
+            border-radius: 2px;
         }
-        .project-meta {
-            font-size: 0.9rem;
-            color: #666;
+        .summary-box {
+            background-color: #f8f9fa;
+            border-left: 4px solid #3498db;
+            padding: 20px;
+            border-radius: 4px;
+            margin-bottom: 30px;
+        }
+        .summary-box p {
             margin-bottom: 10px;
         }
+        .summary-box p:last-child {
+            margin-bottom: 0;
+        }
+        .skill-group {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+        }
+        .skill-group-title {
+            font-weight: 700;
+            font-size: 0.95rem;
+            min-width: 170px;
+            color: #2c3e50;
+            padding-top: 4px;
+        }
+        .skill-badges {
+            flex-grow: 1;
+        }
         .skill-badge {
-            background-color: #e9ecef;
+            background-color: #edf2f7;
             color: #2c3e50;
             font-weight: 600;
             font-size: 0.85rem;
-            margin-right: 5px;
-            margin-bottom: 5px;
+            margin-right: 6px;
+            margin-bottom: 8px;
             display: inline-block;
-            padding: 5px 12px;
+            padding: 6px 14px;
             border-radius: 20px;
+            border: 1px solid #e2e8f0;
+        }
+        .project-category {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: #2c3e50;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+        .project-category i {
+            color: #3498db;
+            margin-right: 10px;
+        }
+        .project-item {
+            margin-bottom: 35px;
+            position: relative;
+        }
+        .project-title {
+            font-weight: 800;
+            font-size: 1.2rem;
+            color: #1a252f;
+            margin-bottom: 5px;
+        }
+        .project-meta {
+            font-size: 0.9rem;
+            color: #7f8c8d;
+            font-weight: 500;
+            margin-bottom: 12px;
+        }
+        .proj-tech-badge {
+            background-color: #e8f4f8;
+            color: #2980b9;
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 4px 10px;
+            border-radius: 6px;
+            margin-right: 5px;
+            display: inline-block;
+            margin-bottom: 8px;
+        }
+        .project-details {
+            padding-left: 0;
+            list-style-type: none;
+        }
+        .project-details li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 10px;
+            color: #4a5568;
+        }
+        .project-details li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #3498db;
+            font-weight: bold;
+        }
+        .achievement-highlight {
+            background-color: #fffaf0;
+            border-radius: 4px;
+            padding: 2px 6px;
+            color: #d35400 !important;
+            font-weight: 600;
+        }
+        .trouble-highlight {
+            background-color: #f0f4f8;
+            border-radius: 4px;
+            padding: 2px 6px;
+            color: #2980b9 !important;
+            font-weight: 600;
+        }
+        .award-item {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 15px;
+        }
+        .award-item::before {
+            content: "\f091";
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            top: 2px;
+            color: #f1c40f;
+            font-size: 0.9rem;
         }
         .link-icon {
             color: #e74c3c;
             margin-right: 5px;
         }
-        ul { padding-left: 20px; }
     </style>
 </head>
 <body>
@@ -97,139 +227,188 @@
     <div class="row g-0">
         <!-- Left Sidebar -->
         <div class="col-md-4 sidebar">
-            <!-- 사진 공간 비워두기 -->
+            <!-- 프로필 사진 공간 -->
             <div class="profile-image-placeholder">
-                <img src="" alt="" style="display:none;">
-                <span>Photo Area</span>
+                <img src="" alt="Profile Image">
             </div>
-            <h2 class="text-center fw-bold mb-1">허진수</h2>
-            <h5 class="text-center text-light mb-4" style="font-size: 1rem;">AI / 백엔드 시스템 아키텍처 개발자</h5>
             
-            <div class="mb-4">
-                <h6 class="text-uppercase fw-bold border-bottom border-secondary pb-2 mb-3">Contact</h6>
-                <ul class="list-unstyled">
-                    <li class="mb-2"><i class="fa fa-envelope me-2"></i> email@example.com</li>
-                    <li class="mb-2"><i class="fa fa-phone me-2"></i> 010-0000-0000</li>
-                    <li class="mb-2"><i class="fab fa-github me-2"></i> <a href="https://github.com/Serun1017" target="_blank">github.com/Serun1017</a></li>
-                    <li class="mb-2"><i class="fa fa-blog me-2"></i> <a href="https://velog.io/@serun1017" target="_blank">velog.io/@serun1017</a></li>
-                    <li class="mb-2"><i class="fab fa-youtube me-2"></i> <a href="https://youtube.com/@허진수-t5j" target="_blank">youtube.com/@허진수-t5j</a></li>
-                </ul>
-            </div>
+            <h2 class="text-center fw-bold mb-1 text-white">허진수</h2>
+            <h6 class="text-center text-info mb-4 fw-bold">백엔드 엔지니어</h6>
+            
+            <div class="sidebar-heading">Contact & Links</div>
+            <ul class="list-unstyled">
+                <li class="mb-3"><i class="fa fa-envelope me-3 text-info"></i> tjgh219@naver.com</li>
+                <li class="mb-3"><i class="fa fa-phone me-3 text-info"></i> 010-2677-8978</li>
+                <li class="mb-3"><i class="fab fa-github me-3 text-info"></i> <a href="https://github.com/Serun1017" target="_blank">github.com/Serun1017</a></li>
+                <li class="mb-3"><i class="fa fa-blog me-3 text-info"></i> <a href="https://velog.io/@serun1017" target="_blank">velog.io/@serun1017</a><br><small class="text-muted ms-4 d-block">(아키텍처 회고 80+ 포스팅)</small></li>
+                <li class="mb-3"><i class="fab fa-youtube me-3 text-info"></i> <a href="https://youtube.com/@허진수-t5j" target="_blank">youtube.com/@허진수-t5j</a></li>
+            </ul>
 
-            <div class="mb-4">
-                <h6 class="text-uppercase fw-bold border-bottom border-secondary pb-2 mb-3">Education</h6>
-                <ul class="list-unstyled">
-                    <li class="mb-2">
-                        <div class="fw-bold">세종대학교 (Sejong Univ.)</div>
-                        <div style="font-size: 0.9rem;">소프트웨어융합대학 소프트웨어학과</div>
-                        <div style="font-size: 0.85rem; color: #bdc3c7;">공학사 졸업 (2019.03 - 2025.02.14)</div>
-                    </li>
-                </ul>
-            </div>
+            <div class="sidebar-heading">Education</div>
+            <ul class="list-unstyled">
+                <li class="mb-3">
+                    <div class="fw-bold text-white">세종대학교 (Sejong Univ.)</div>
+                    <div style="font-size: 0.9rem; color: #bdc3c7;">소프트웨어융합대학 소프트웨어학과</div>
+                    <div style="font-size: 0.85rem; color: #95a5a6;">공학사 졸업 (2019.03 - 2025.02)</div>
+                </li>
+            </ul>
 
-            <div class="mb-4">
-                <h6 class="text-uppercase fw-bold border-bottom border-secondary pb-2 mb-3">Awards</h6>
-                <ul class="list-unstyled">
-                    <li class="mb-2">
-                        <div class="fw-bold">교내 SW코딩경시대회 4등</div>
-                        <div style="font-size: 0.85rem; color: #bdc3c7;">세종대학교 (2019.12.04)</div>
-                    </li>
-                </ul>
-            </div>
+            <div class="sidebar-heading">Awards</div>
+            <ul class="list-unstyled">
+                <li class="award-item">
+                    <div class="fw-bold text-white">Microsoft Data School 3기<br>2차 팀 프로젝트 최우수(1등)</div>
+                    <div style="font-size: 0.85rem; color: #95a5a6;">Microsoft (2026.04)</div>
+                </li>
+                <li class="award-item">
+                    <div class="fw-bold text-white">Microsoft Data School 3기<br>1차 팀 프로젝트 최우수(1등)</div>
+                    <div style="font-size: 0.85rem; color: #95a5a6;">Microsoft (2026.03)</div>
+                </li>
+                <li class="award-item">
+                    <div class="fw-bold text-white">교내 SW코딩경시대회 4등</div>
+                    <div style="font-size: 0.85rem; color: #95a5a6;">세종대학교 (2019.12)</div>
+                </li>
+            </ul>
         </div>
 
         <!-- Right Main Content -->
         <div class="col-md-8 main-content">
             
             <!-- About Me -->
-            <div class="mb-5">
+            <div>
                 <h3 class="section-title">About Me</h3>
-                <p>
-                    <strong>"데이터와 AI로 일상의 문제를 해결하는 아키텍처 설계자"</strong><br><br>
-                    단순히 코드를 작성하는 것을 넘어, 비즈니스 요구사항을 파악하고 최적의 지능형 시스템 아키텍처를 설계하는 것에 푹 빠져있는 개발자입니다. Microsoft Data School 3기를 수료하며 클라우드(Azure)와 AI 기술을 융합한 실전 프로젝트들을 주도적으로 수행했습니다.<br><br>
-                    시스템 구축 시 발생한 기술적 문제와 트러블슈팅 과정은 Velog 기술 블로그에 80여 건의 글로 남기며 자산화하고 있으며, 직관적인 소통을 위해 구현된 프로젝트는 YouTube 시연 영상으로 공유하고 있습니다.
-                </p>
+                <h5 class="fw-bold text-dark mb-3">"AI와 데이터를 안정적으로 연결하고, 병목 없는 비동기 분산 아키텍처를 설계하는 백엔드 엔지니어"</h5>
+                
+                <div class="summary-box">
+                    <p>단순히 API를 개발하는 것을 넘어, <strong>대규모 트래픽 환경에서의 동시성 제어와 고순도 데이터 파이프라인 설계</strong>에 강점을 가진 백엔드 엔지니어입니다.</p>
+                    <ul class="mb-0 ps-3">
+                        <li class="mb-2"><strong>대규모 트래픽과 AI 서빙의 융합:</strong> Microsoft Data School 3기를 수료하며 클라우드(Azure) 환경에서 AI 연산망과 웹 서버 간의 트래픽을 통제하는 비동기 시스템을 설계해 2회 연속 프로젝트 1등을 달성했습니다. 다중 접속 시 발생하는 DB 병목을 Redis 분산 락(Lock)과 Pub/Sub 모델, SSE 단방향 스트리밍으로 해결했습니다.</li>
+                        <li class="mb-2"><strong>FinOps 관점의 비용 최적화:</strong> 에이전틱 AI(Agentic AI) 시대에 맞춰 단순히 모델을 연동하는 것에 그치지 않고, 3중 텍스트 정제 파이프라인과 스마트 청킹(Smart Chunking)을 직접 구현해 시스템 토큰 비용을 62% 이상 절감한 경험이 있습니다.</li>
+                        <li><strong>ADR(아키텍처 결정 기록) 기반의 소통:</strong> 직면한 병목 현상의 원인을 분석하고 구조적으로 해결해 나가는 과정을 80여 편의 기술 블로그에 기록하고 있습니다. 시연 영상과 명확한 기술 문서화를 통해 논리적으로 소통하는 팀워크 지향적 개발자입니다.</li>
+                    </ul>
+                </div>
             </div>
 
             <!-- Tech Stack -->
             <div class="mb-5">
                 <h3 class="section-title">Tech Stack</h3>
-                <div>
-                    <span class="skill-badge">Python</span>
-                    <span class="skill-badge">Java</span>
-                    <span class="skill-badge">C</span>
-                    <span class="skill-badge">FastAPI</span>
-                    <span class="skill-badge">Flask</span>
-                    <span class="skill-badge">PyTorch</span>
-                    <span class="skill-badge">Leaflet.js</span>
-                    <span class="skill-badge">Azure Cloud</span>
-                    <span class="skill-badge">Unreal Engine 4</span>
-                    <span class="skill-badge">Unity (ShaderLab)</span>
+                <div class="skill-group">
+                    <div class="skill-group-title"><i class="fa fa-code text-secondary me-2"></i> Languages</div>
+                    <div class="skill-badges">
+                        <span class="skill-badge">Python</span>
+                        <span class="skill-badge">Java</span>
+                        <span class="skill-badge">C</span>
+                    </div>
+                </div>
+                <div class="skill-group">
+                    <div class="skill-group-title"><i class="fa fa-cubes text-secondary me-2"></i> Frameworks & AI</div>
+                    <div class="skill-badges">
+                        <span class="skill-badge">FastAPI</span>
+                        <span class="skill-badge">Flask</span>
+                        <span class="skill-badge">LangGraph (Multi-Agent)</span>
+                        <span class="skill-badge">RAG</span>
+                        <span class="skill-badge">PyTorch</span>
+                        <span class="skill-badge">ViT</span>
+                    </div>
+                </div>
+                <div class="skill-group">
+                    <div class="skill-group-title"><i class="fa fa-database text-secondary me-2"></i> Cloud & DB</div>
+                    <div class="skill-badges">
+                        <span class="skill-badge">Azure (Event Hubs, Functions)</span>
+                        <span class="skill-badge">Databricks</span>
+                        <span class="skill-badge">GCP (Deep Learning VM)</span>
+                        <span class="skill-badge">PostgreSQL</span>
+                        <span class="skill-badge">Redis</span>
+                    </div>
+                </div>
+                <div class="skill-group">
+                    <div class="skill-group-title"><i class="fa fa-tools text-secondary me-2"></i> DevOps & Tools</div>
+                    <div class="skill-badges">
+                        <span class="skill-badge">Git & GitHub</span>
+                        <span class="skill-badge">GitHub Actions</span>
+                        <span class="skill-badge">Notion</span>
+                    </div>
                 </div>
             </div>
 
             <!-- Projects -->
-            <div class="mb-5">
+            <div class="mb-4">
                 <h3 class="section-title">Projects</h3>
                 
+                <!-- Main Projects -->
+                <div class="project-category"><i class="fa fa-crosshairs"></i> Core Projects</div>
+
                 <div class="project-item">
                     <div class="project-title">ACV: Azure 기반 허위정보 실시간 차단 및 검증 솔루션</div>
-                    <div class="project-meta">Microsoft Data School 3기 2번째 팀 프로젝트 | 2026.04 | <strong>Azure, FastAPI, Python</strong></div>
-                    <ul>
-                        <li>Azure 클라우드 환경을 기반으로 허위정보를 실시간 차단 및 검증하는 솔루션 아키텍처 구축 및 UI 개발.</li>
-                        <li>FastAPI 백엔드 API 서버 설계, YouTube 스크립트 인젝터 개발 담당.</li>
-                        <li><strong>Links:</strong> 
-                            <a href="https://velog.io/@serun1017" target="_blank" class="text-decoration-none"><i class="fa fa-blog link-icon"></i>아키텍처/트러블슈팅 회고 (1~3편)</a> | 
-                            <a href="https://youtube.com/@허진수-t5j" target="_blank" class="text-decoration-none"><i class="fab fa-youtube link-icon" style="color:#e74c3c;"></i>시연 영상</a>
+                    <div class="project-meta">Microsoft Data School 3기 2차 팀 프로젝트 (Backend / Architect) | 2026.04</div>
+                    <div class="mb-3">
+                        <span class="proj-tech-badge">Python</span>
+                        <span class="proj-tech-badge">FastAPI</span>
+                        <span class="proj-tech-badge">Azure(Databricks)</span>
+                        <span class="proj-tech-badge">Redis</span>
+                        <span class="proj-tech-badge">Groq LPU</span>
+                        <span class="proj-tech-badge">LangGraph</span>
+                    </div>
+                    <ul class="project-details">
+                        <li><strong>요약:</strong> 유튜브 영상 내 허위정보를 실시간으로 교차 검증하고 차단하는 멀티 에이전트 기반 비동기 분산 아키텍처 및 API 서버 구축.</li>
+                        <li><span class="achievement-highlight"><i class="fa fa-trophy me-1"></i> 성과:</span> 프로젝트 아키텍처 우수성을 인정받아 참여 팀 중 <strong>전체 1등 달성</strong>.</li>
+                        <li><span class="trouble-highlight"><i class="fa fa-bolt me-1"></i> 동시성 제어:</span> 다중 클라이언트 요청 시 발생하는 중복 연산을 막고자 <strong>Redis 분산 락(Lock)과 Pub/Sub 모델</strong> 도입. 단 1대의 워커만 파이프라인을 가동시켜 대규모 트래픽에도 연산 비용을 상수 O(1)로 고정.</li>
+                        <li><span class="trouble-highlight"><i class="fa fa-filter me-1"></i> 데이터 파이프라인(FinOps):</span> 메달리온 아키텍처(Bronze-Silver-Gold)를 설계하고 정규표현식 3중 필터링을 거쳐 로우 데이터를 고순도로 정제. LLM 환각 방지 및 <strong>전체 토큰 비용 62% 절감</strong> 달성.</li>
+                        <li><span class="trouble-highlight"><i class="fa fa-rocket me-1"></i> 고속 추론 서빙:</span> 기존 GPU 추론 엔진을 토큰 생성에 특화된 Groq LPU로 교체하여 <strong>분석 소요 시간을 평균 22.4초에서 7.6초로 약 65% 단축</strong> (7초 내 실시간 차단 성공).</li>
+                        <li class="mt-2">
+                            <a href="https://velog.io/@serun1017/프로젝트-ACV-Azure-기반-허위정보-실시간-차단-및-검증-솔루션-1편" target="_blank" class="text-decoration-none fw-bold"><i class="fa fa-book link-icon"></i> Velog 회고 시리즈</a> <span class="mx-2 text-muted">|</span>
+                            <a href="https://youtube.com/@허진수-t5j" target="_blank" class="text-decoration-none fw-bold"><i class="fab fa-youtube link-icon"></i> 시연 영상</a>
                         </li>
                     </ul>
                 </div>
 
                 <div class="project-item">
                     <div class="project-title">RadiNow: 실시간 원전 데이터 감시 및 지능형 비상 대응 시스템</div>
-                    <div class="project-meta">Microsoft Data School 3기 1번째 팀 프로젝트 | 2026.03 | <strong>Python</strong></div>
-                    <ul>
-                        <li>실시간 원전 데이터 모니터링 및 이상 징후 감시, 지능형 비상 상황 대응 시스템 구축.</li>
-                        <li><strong>Links:</strong>
-                            <a href="https://velog.io/@serun1017/프로젝트-회고-RadiNow-실시간-원전-데이터-감시-및-지능형-비상-대응-시스템-아키텍처-구축기" target="_blank" class="text-decoration-none"><i class="fa fa-blog link-icon"></i>구축기 (1~2편)</a> | 
-                            <a href="https://youtube.com/@허진수-t5j" target="_blank" class="text-decoration-none"><i class="fab fa-youtube link-icon" style="color:#e74c3c;"></i>시연 영상</a>
+                    <div class="project-meta">Microsoft Data School 3기 1차 팀 프로젝트 | 2026.03</div>
+                    <div class="mb-3">
+                        <span class="proj-tech-badge">Python</span>
+                        <span class="proj-tech-badge">Flask</span>
+                        <span class="proj-tech-badge">Azure Event Hubs/Functions (Serverless)</span>
+                        <span class="proj-tech-badge">PostgreSQL</span>
+                    </div>
+                    <ul class="project-details">
+                        <li><strong>요약:</strong> 실시간 원전 센서 데이터 이상 징후 감지 및 RAG 모델 연동 맞춤형 비상 매뉴얼 자동 전파 관제 대시보드 구축.</li>
+                        <li><span class="achievement-highlight"><i class="fa fa-trophy me-1"></i> 성과:</span> 지능형 비상 대응 로직을 성공적으로 구현하여 <strong>프로젝트 평가 1등 수상</strong>.</li>
+                        <li><span class="trouble-highlight"><i class="fa fa-bolt me-1"></i> 단방향 스트리밍(SSE) 도입:</span> 비정기적인 정부 재난 문자 수신 시 발생하는 불필요한 Polling 부하와 지연(Latency) 문제를 <strong>SSE(Server-Sent Events)</strong>로 전면 교체하여 서버 부하 제로 및 실시간성 확보.</li>
+                        <li><span class="trouble-highlight"><i class="fa fa-bolt me-1"></i> 백그라운드 캐싱 최적화:</span> 다수 클라이언트의 대시보드 접속에 따른 DB 커넥션 초과를 막고자 <strong>APScheduler를 활용한 In-Memory 캐싱</strong>을 적용. 수백 건의 동시 요청에도 O(1) 속도로 응답 처리.</li>
+                        <li><span class="trouble-highlight"><i class="fa fa-bolt me-1"></i> 서버리스 기반 스케일 아웃:</span> API 스트리밍 데이터 유실 방어 및 트래픽 분산을 위해 <strong>Azure Event Hubs 버퍼링 및 Functions 서버리스 구조</strong>로 설계 분리.</li>
+                        <li class="mt-2">
+                            <a href="https://velog.io/@serun1017/프로젝트-회고-RadiNow-실시간-원전-데이터-감시-및-지능형-비상-대응-시스템-아키텍처-구축기" target="_blank" class="text-decoration-none fw-bold"><i class="fa fa-book link-icon"></i> Velog 회고 시리즈</a> <span class="mx-2 text-muted">|</span>
+                            <a href="https://youtube.com/@허진수-t5j" target="_blank" class="text-decoration-none fw-bold"><i class="fab fa-youtube link-icon"></i> 시연 영상</a>
                         </li>
                     </ul>
                 </div>
 
                 <div class="project-item">
-                    <div class="project-title">스케치 기반 이미지 검색 시스템 (Capstone Project)</div>
-                    <div class="project-meta">세종대학교 2023학년도 2학기 캡스톤 프로젝트 | 2023.09 - 2023.12 | <strong>Python</strong></div>
-                    <ul>
-                        <li>사용자의 스케치를 입력받아 유사한 이미지를 인공지능 기반으로 검색해 주는 서비스 개발.</li>
-                        <li><strong>Links:</strong>
-                            <a href="https://github.com/Serun1017/Capstone-Project-2023_2" target="_blank" class="text-decoration-none"><i class="fab fa-github link-icon" style="color:#333;"></i>GitHub Repo</a> | 
-                            <a href="https://youtube.com/@허진수-t5j" target="_blank" class="text-decoration-none"><i class="fab fa-youtube link-icon" style="color:#e74c3c;"></i>시연 영상</a>
-                        </li>
+                    <div class="project-title">스케치 기반 이미지 검색 시스템 (ZSE-SBIR)</div>
+                    <div class="project-meta">세종대학교 2023학년도 2학기 캡스톤 프로젝트 (Team Leader) | 2023.09 - 2023.12</div>
+                    <div class="mb-3">
+                        <span class="proj-tech-badge">Python</span>
+                        <span class="proj-tech-badge">PyTorch</span>
+                        <span class="proj-tech-badge">GCP (Deep Learning VM)</span>
+                        <span class="proj-tech-badge">ViT</span>
+                    </div>
+                    <ul class="project-details">
+                        <li><strong>요약:</strong> 사용자의 스케치 특징점을 추출해 DB 내 유사도(Distance)가 높은 사진을 반환하는 지능형 검색 서비스 기획 및 AI 파인튜닝.</li>
+                        <li><span class="trouble-highlight"><i class="fa fa-bolt me-1"></i> UI 병목 해결:</span> 무거운 AI 모델 탐색 작업 시 발생하는 인터페이스 정지(Freezing) 현상을 <strong>쓰레드 풀링(Thread Pooling)</strong>을 적용한 병렬 연산으로 해결하여 3초 미만의 원활한 검색 UX 보장.</li>
+                        <li><span class="trouble-highlight"><i class="fa fa-bolt me-1"></i> 정확도 향상:</span> 기존 Object-level 모델 한계 극복을 위해 ViT 기반 구조 도입. GCP 환경에서 10,000장의 FS-COCO 데이터셋 분할 구축 및 재학습(Fine-tuning)을 주도하여 <strong>거리 평균 정확도(유사도)를 0.89에서 0.93으로 개선</strong>.</li>
                     </ul>
                 </div>
 
-                <div class="project-item">
-                    <div class="project-title">데이터 시각화 및 자동화 미니 프로젝트</div>
-                    <div class="project-meta">개인 프로젝트 | 2026.01 - 2026.02 | <strong>Flask, Leaflet.js, AI</strong></div>
-                    <ul>
-                        <li><strong>Amazon Sales Dashboard (2026.02):</strong> 아마존 판매 데이터셋을 활용해 전 세계 판매 현황을 시각화하는 대시보드 구축.</li>
-                        <li><strong>매일 동화 한 편 (2026.01):</strong> AI 기술을 활용해 매일 새로운 텍스트 이야기와 삽화를 자동 생성하고 기록하는 자동화 파이프라인.</li>
-                        <li><strong>Links:</strong> <a href="https://velog.io/@serun1017" target="_blank" class="text-decoration-none"><i class="fa fa-blog link-icon"></i>Velog 상세 기록</a></li>
-                    </ul>
-                </div>
+                <!-- Personal Projects -->
+                <div class="project-category"><i class="fa fa-lightbulb"></i> Personal Projects & Research</div>
 
                 <div class="project-item">
-                    <div class="project-title">인공지능 연구 & 게임/그래픽스 엔진 실습</div>
-                    <div class="project-meta">역량 강화 프로젝트 | <strong>PyTorch, C, Java, Unreal 4, Unity</strong></div>
-                    <ul>
-                        <li>PyTorch를 활용한 3-Layer MLP 코드 및 7-layer DNN 스크래치 구현.</li>
-                        <li>A-Star, BFS, DFS 등 다양한 탐색 알고리즘 Python 구현.</li>
-                        <li>C언어 기반 게임 'TheSeeker', Unreal Engine 4 환경 렌더링 '대장간 마을', Java 기반 'WebPainter'.</li>
-                        <li><strong>Links:</strong> 
-                            <a href="https://github.com/Serun1017" target="_blank" class="text-decoration-none"><i class="fab fa-github link-icon" style="color:#333;"></i>GitHub</a> |
-                            <a href="https://youtube.com/@허진수-t5j" target="_blank" class="text-decoration-none"><i class="fab fa-youtube link-icon" style="color:#e74c3c;"></i>YouTube 시연들</a>
-                        </li>
+                    <div class="project-title">데이터 시각화 및 AI/알고리즘 구현 연구</div>
+                    <div class="project-meta">자기주도적 개발 역량 강화 실습 이력 요약 | 2024 - 2026</div>
+                    <ul class="project-details">
+                        <li><strong>Amazon Sales Dashboard (2026.02):</strong> Flask 기반 글로벌 판매 시각화 대시보드. 데이터 파편화 이슈를 해결하고자 <strong>PostgreSQL에서 <code>RANK()</code> 함수와 SQL View를 직접 생성하여 쿼리를 최적화</strong>함.</li>
+                        <li><strong>매일 동화 한 편 (2026.01):</strong> Ollama(LLM)와 Stable Diffusion을 활용한 텍스트/삽화 자동 생성 파이프라인. Azure Blob Storage와 워드프레스 API 연동을 통한 완전 자동 게시 시스템 구축.</li>
+                        <li><strong>탄탄한 CS 및 그래픽스 연구:</strong> 인공지능(A*, BFS/DFS 알고리즘 구현 및 PyTorch 7-layer DNN 스크래치 구현) 관련 40편, 컴퓨터그래픽스 관련 31편 등 <strong>총 80여 편의 기술적 고민과 원리 분석을 벨로그에 문서화</strong>함.</li>
                     </ul>
                 </div>
 
