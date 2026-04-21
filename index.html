@@ -1,267 +1,244 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <title>허진수 | AI & Data Solution Engineer Resume</title>
-    <!-- Meta -->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Heo Jin-su Developer Resume">
-    <meta name="author" content="Heo Jin-su">    
-    <link rel="shortcut icon" href="favicon.ico">  
-    
-    <link href='https://fonts.googleapis.com/css?family=Roboto:400,500,400italic,300italic,300,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
-    <!-- FontAwesome JS-->
-	<script src="https://use.fontawesome.com/releases/v5.1.0/js/all.js" xintegrity="sha384-3LK/3kTpDE/Pkp8gTNp2gR/2gOiwQ6QaZ7W9StWzsgiXVAnf6uWfVq97decadPaM" crossorigin="anonymous"></script>
-    <!-- Tailwind CSS for layout -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
+    <title>허진수 - 개발자 이력서</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         body {
-            font-family: 'Roboto', sans-serif;
-            color: #545E6C;
-            background: #f5f5f5;
-            font-size: 14px;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
+            background-color: #f4f5f6;
+            color: #333;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-        .sidebar-wrapper {
-            background: #2d3e50;
-            color: #fff;
-        }
-        .sidebar-wrapper a {
-            color: #fff;
-        }
-        .sidebar-wrapper .profile-container {
-            padding: 30px;
-            background: rgba(0,0,0,0.2);
-            text-align: center;
-        }
-        .sidebar-wrapper .name {
-            font-size: 28px;
-            font-weight: 900;
-            margin-top: 0;
-            margin-bottom: 10px;
-        }
-        .sidebar-wrapper .tagline {
-            color: rgba(255,255,255,0.6);
-            font-size: 16px;
-            font-weight: 400;
-            margin-bottom: 15px;
-        }
-        .main-wrapper {
+        .resume-wrapper {
+            max-width: 1000px;
+            margin: 40px auto;
             background: #fff;
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .sidebar {
+            background-color: #2c3e50;
+            color: #fff;
+            padding: 40px 30px;
+            height: 100%;
+        }
+        .sidebar a {
+            color: #bdc3c7;
+            text-decoration: none;
+            word-break: break-all;
+        }
+        .sidebar a:hover {
+            color: #fff;
+        }
+        .profile-image-placeholder {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background-color: #34495e;
+            border: 3px solid #fff;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+        .main-content {
             padding: 40px;
-            min-height: 100vh;
         }
         .section-title {
-            text-transform: uppercase;
-            font-size: 18px;
-            font-weight: 700;
-            color: #2d3e50;
-            position: relative;
+            border-bottom: 2px solid #2c3e50;
             padding-bottom: 10px;
             margin-bottom: 20px;
-            border-bottom: 2px solid #e8e8e8;
+            font-weight: 700;
+            color: #2c3e50;
+            text-transform: uppercase;
         }
-        .item { margin-bottom: 30px; }
-        .item .title { font-weight: 700; color: #434E5E; margin-bottom: 5px; font-size: 16px; }
-        .item .meta { color: #9799A4; margin-bottom: 10px; font-size: 12px; }
-        .item .project-tagline { color: #545E6C; }
-        .skillset .item { margin-bottom: 15px; }
-        .level-bar {
-            background: #e8e8e8;
-            height: 12px;
-            border-radius: 2px;
+        .project-item {
+            margin-bottom: 25px;
         }
-        .level-bar-inner {
-            background: #49b5e7;
-            height: 12px;
-            border-radius: 2px;
+        .project-title {
+            font-weight: 700;
+            font-size: 1.15rem;
+            color: #2c3e50;
         }
+        .project-meta {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 10px;
+        }
+        .skill-badge {
+            background-color: #e9ecef;
+            color: #2c3e50;
+            font-weight: 600;
+            font-size: 0.85rem;
+            margin-right: 5px;
+            margin-bottom: 5px;
+            display: inline-block;
+            padding: 5px 12px;
+            border-radius: 20px;
+        }
+        .link-icon {
+            color: #e74c3c;
+            margin-right: 5px;
+        }
+        ul { padding-left: 20px; }
     </style>
-</head> 
-
+</head>
 <body>
-    <div class="flex flex-col md:flex-row max-w-[1200px] mx-auto shadow-2xl">
-        <!-- Sidebar -->
-        <div class="sidebar-wrapper w-full md:w-[300px] flex-shrink-0">
-            <div class="profile-container">
-                <div class="inline-block w-32 h-32 bg-slate-400 rounded-full mb-4 flex items-center justify-center border-4 border-slate-500 overflow-hidden">
-                    <i class="fas fa-user fa-5x text-slate-200 mt-6"></i>
-                </div>
-                <h1 class="name">허진수</h1>
-                <h3 class="tagline">AI & Data Solution Engineer</h3>
+
+<div class="container resume-wrapper">
+    <div class="row g-0">
+        <!-- Left Sidebar -->
+        <div class="col-md-4 sidebar">
+            <!-- 사진 공간 비워두기 -->
+            <div class="profile-image-placeholder">
+                <img src="" alt="" style="display:none;">
+                <span>Photo Area</span>
             </div>
+            <h2 class="text-center fw-bold mb-1">허진수</h2>
+            <h5 class="text-center text-light mb-4" style="font-size: 1rem;">AI / 백엔드 시스템 아키텍처 개발자</h5>
             
-            <div class="p-8 space-y-8">
-                <!-- Contact -->
-                <div class="contact-container">
-                    <ul class="space-y-3">
-                        <li class="flex items-center gap-3">
-                            <i class="fas fa-envelope text-blue-400"></i>
-                            <a href="mailto:user@example.com">user@example.com</a>
-                        </li>
-                        <li class="flex items-center gap-3">
-                            <i class="fas fa-phone text-blue-400"></i>
-                            <span>010-0000-0000</span>
-                        </li>
-                        <li class="flex items-center gap-3">
-                            <i class="fab fa-github text-blue-400"></i>
-                            <a href="https://github.com/Serun1017" target="_blank">Serun1017</a>
-                        </li>
-                        <li class="flex items-center gap-3">
-                            <i class="fas fa-blog text-blue-400"></i>
-                            <a href="https://velog.io/@serun1017" target="_blank">Velog Blog</a>
-                        </li>
-                        <li class="flex items-center gap-3">
-                            <i class="fab fa-youtube text-blue-400"></i>
-                            <a href="https://youtube.com/@허진수-t5j" target="_blank">Projects Demo</a>
-                        </li>
-                    </ul>
-                </div>
-                
-                <!-- Education -->
-                <div class="education-container">
-                    <h2 class="text-lg font-bold uppercase border-b border-white/20 pb-2 mb-4">Education</h2>
-                    <div class="space-y-4">
-                        <div>
-                            <h4 class="font-bold text-white">세종대학교</h4>
-                            <p class="text-sm text-white/70 italic">컴퓨터공학/소프트웨어학 학사</p>
-                            <p class="text-xs text-white/50">2019 - 2024 (졸업)</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Languages -->
-                <div class="languages-container">
-                    <h2 class="text-lg font-bold uppercase border-b border-white/20 pb-2 mb-4">Awards</h2>
-                    <ul class="text-sm space-y-2 text-white/80">
-                        <li>• 교내 SW코딩경시대회 4등 (2019)</li>
-                        <li>• Microsoft Data School 수료 (2024)</li>
-                    </ul>
-                </div>
-                
-                <!-- Interests -->
-                <div class="interests-container">
-                    <h2 class="text-lg font-bold uppercase border-b border-white/20 pb-2 mb-4">Interests</h2>
-                    <ul class="text-sm space-y-2 text-white/80">
-                        <li>Cloud Computing</li>
-                        <li>Deep Learning Architectures</li>
-                        <li>Technical Writing</li>
-                    </ul>
-                </div>
+            <div class="mb-4">
+                <h6 class="text-uppercase fw-bold border-bottom border-secondary pb-2 mb-3">Contact</h6>
+                <ul class="list-unstyled">
+                    <li class="mb-2"><i class="fa fa-envelope me-2"></i> email@example.com</li>
+                    <li class="mb-2"><i class="fa fa-phone me-2"></i> 010-0000-0000</li>
+                    <li class="mb-2"><i class="fab fa-github me-2"></i> <a href="https://github.com/Serun1017" target="_blank">github.com/Serun1017</a></li>
+                    <li class="mb-2"><i class="fa fa-blog me-2"></i> <a href="https://velog.io/@serun1017" target="_blank">velog.io/@serun1017</a></li>
+                    <li class="mb-2"><i class="fab fa-youtube me-2"></i> <a href="https://youtube.com/@허진수-t5j" target="_blank">youtube.com/@허진수-t5j</a></li>
+                </ul>
+            </div>
+
+            <div class="mb-4">
+                <h6 class="text-uppercase fw-bold border-bottom border-secondary pb-2 mb-3">Education</h6>
+                <ul class="list-unstyled">
+                    <li class="mb-2">
+                        <div class="fw-bold">세종대학교 (Sejong Univ.)</div>
+                        <div style="font-size: 0.9rem;">소프트웨어융합대학 소프트웨어학과</div>
+                        <div style="font-size: 0.85rem; color: #bdc3c7;">공학사 졸업 (2019.03 - 2025.02.14)</div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="mb-4">
+                <h6 class="text-uppercase fw-bold border-bottom border-secondary pb-2 mb-3">Awards</h6>
+                <ul class="list-unstyled">
+                    <li class="mb-2">
+                        <div class="fw-bold">교내 SW코딩경시대회 4등</div>
+                        <div style="font-size: 0.85rem; color: #bdc3c7;">세종대학교 (2019.12.04)</div>
+                    </li>
+                </ul>
             </div>
         </div>
-        
-        <!-- Main Content -->
-        <div class="main-wrapper flex-grow">
-            <!-- Summary Section -->
-            <section class="mb-10">
-                <h2 class="section-title"><i class="fas fa-user-circle mr-2"></i>Career Summary</h2>
-                <div class="summary leading-relaxed">
-                    <p>
-                        Microsoft Data School 3기 과정을 통해 Azure 클라우드 기반의 실시간 <strong>AI 데이터 솔루션</strong>을 설계하고 구축한 경험이 있습니다. 
-                        딥러닝 모델링(PyTorch)부터 클라우드 서빙까지 엔드투엔드 파이프라인 개발에 열정을 가지고 있으며, 
-                        <strong>Velog에 80개 이상의 기술 포스팅</strong>을 작성하며 학습한 지식을 기록하고 공유하는 문화를 즐깁니다. 
-                        컴퓨터 그래픽스와 딥러닝 아키텍처에 대한 기초가 탄탄하며, 실무적인 문제 해결을 위해 끊임없이 트러블슈팅하는 개발자입니다.
-                    </p>
-                </div>
-            </section>
+
+        <!-- Right Main Content -->
+        <div class="col-md-8 main-content">
             
-            <!-- Experiences Section -->
-            <section class="mb-10">
-                <h2 class="section-title"><i class="fas fa-briefcase mr-2"></i>Key Projects</h2>
+            <!-- About Me -->
+            <div class="mb-5">
+                <h3 class="section-title">About Me</h3>
+                <p>
+                    <strong>"데이터와 AI로 일상의 문제를 해결하는 아키텍처 설계자"</strong><br><br>
+                    단순히 코드를 작성하는 것을 넘어, 비즈니스 요구사항을 파악하고 최적의 지능형 시스템 아키텍처를 설계하는 것에 푹 빠져있는 개발자입니다. Microsoft Data School 3기를 수료하며 클라우드(Azure)와 AI 기술을 융합한 실전 프로젝트들을 주도적으로 수행했습니다.<br><br>
+                    시스템 구축 시 발생한 기술적 문제와 트러블슈팅 과정은 Velog 기술 블로그에 80여 건의 글로 남기며 자산화하고 있으며, 직관적인 소통을 위해 구현된 프로젝트는 YouTube 시연 영상으로 공유하고 있습니다.
+                </p>
+            </div>
+
+            <!-- Tech Stack -->
+            <div class="mb-5">
+                <h3 class="section-title">Tech Stack</h3>
+                <div>
+                    <span class="skill-badge">Python</span>
+                    <span class="skill-badge">Java</span>
+                    <span class="skill-badge">C</span>
+                    <span class="skill-badge">FastAPI</span>
+                    <span class="skill-badge">Flask</span>
+                    <span class="skill-badge">PyTorch</span>
+                    <span class="skill-badge">Leaflet.js</span>
+                    <span class="skill-badge">Azure Cloud</span>
+                    <span class="skill-badge">Unreal Engine 4</span>
+                    <span class="skill-badge">Unity (ShaderLab)</span>
+                </div>
+            </div>
+
+            <!-- Projects -->
+            <div class="mb-5">
+                <h3 class="section-title">Projects</h3>
                 
-                <div class="item">
-                    <div class="flex justify-between items-start mb-1">
-                        <h3 class="title">Azure 기반 허위정보 실시간 차단 솔루션 (ACV)</h3>
-                        <span class="text-xs text-slate-400 italic">2024.03 - Present</span>
-                    </div>
-                    <div class="meta">Microsoft Data School 3기 - 팀 프로젝트</div>
-                    <div class="details">
-                        <p class="mb-2">Azure 클라우드 생태계를 활용하여 신뢰할 수 없는 허위 정보를 실시간으로 탐지하고 검증하는 시스템입니다.</p>
-                        <ul class="list-disc ml-5 space-y-1 text-sm">
-                            <li>Azure Functions를 활용한 서버리스 AI 모델 서빙 로직 구현</li>
-                            <li>실시간 데이터 스트리밍 기반의 허위 정보 판단 대시보드 연동</li>
-                            <li>팀 내 데이터 파이프라인 설계 및 API 인터페이스 표준화 주도</li>
-                        </ul>
-                    </div>
+                <div class="project-item">
+                    <div class="project-title">ACV: Azure 기반 허위정보 실시간 차단 및 검증 솔루션</div>
+                    <div class="project-meta">Microsoft Data School 3기 2번째 팀 프로젝트 | 2026.04 | <strong>Azure, FastAPI, Python</strong></div>
+                    <ul>
+                        <li>Azure 클라우드 환경을 기반으로 허위정보를 실시간 차단 및 검증하는 솔루션 아키텍처 구축 및 UI 개발.</li>
+                        <li>FastAPI 백엔드 API 서버 설계, YouTube 스크립트 인젝터 개발 담당.</li>
+                        <li><strong>Links:</strong> 
+                            <a href="https://velog.io/@serun1017" target="_blank" class="text-decoration-none"><i class="fa fa-blog link-icon"></i>아키텍처/트러블슈팅 회고 (1~3편)</a> | 
+                            <a href="https://youtube.com/@허진수-t5j" target="_blank" class="text-decoration-none"><i class="fab fa-youtube link-icon" style="color:#e74c3c;"></i>시연 영상</a>
+                        </li>
+                    </ul>
                 </div>
 
-                <div class="item">
-                    <div class="flex justify-between items-start mb-1">
-                        <h3 class="title">RadiNow: 데이터 기반 실시간 정보 공유 라디오</h3>
-                        <span class="text-xs text-slate-400 italic">2024.01 - 2024.02</span>
-                    </div>
-                    <div class="meta">Microsoft Data School 3기 - 팀 프로젝트</div>
-                    <div class="details">
-                        <p class="mb-2">사용자 위치 및 관심사 데이터를 바탕으로 맞춤형 정보를 제공하는 실시간 스트리밍 서비스의 MVP 개발을 진행했습니다.</p>
-                        <ul class="list-disc ml-5 space-y-1 text-sm">
-                            <li>Python 기반의 데이터 전처리 및 추천 로직 기초 설계</li>
-                            <li>YouTube 시연 영상 제작 및 최종 발표 기술 세션 담당</li>
-                        </ul>
-                    </div>
+                <div class="project-item">
+                    <div class="project-title">RadiNow: 실시간 원전 데이터 감시 및 지능형 비상 대응 시스템</div>
+                    <div class="project-meta">Microsoft Data School 3기 1번째 팀 프로젝트 | 2026.03 | <strong>Python</strong></div>
+                    <ul>
+                        <li>실시간 원전 데이터 모니터링 및 이상 징후 감시, 지능형 비상 상황 대응 시스템 구축.</li>
+                        <li><strong>Links:</strong>
+                            <a href="https://velog.io/@serun1017/프로젝트-회고-RadiNow-실시간-원전-데이터-감시-및-지능형-비상-대응-시스템-아키텍처-구축기" target="_blank" class="text-decoration-none"><i class="fa fa-blog link-icon"></i>구축기 (1~2편)</a> | 
+                            <a href="https://youtube.com/@허진수-t5j" target="_blank" class="text-decoration-none"><i class="fab fa-youtube link-icon" style="color:#e74c3c;"></i>시연 영상</a>
+                        </li>
+                    </ul>
                 </div>
 
-                <div class="item">
-                    <div class="flex justify-between items-start mb-1">
-                        <h3 class="title">스케치 기반 이미지 검색 서비스</h3>
-                        <span class="text-xs text-slate-400 italic">2023.09 - 2023.12</span>
-                    </div>
-                    <div class="meta">세종대학교 캡스톤 디자인</div>
-                    <div class="details">
-                        <p class="mb-2">사용자가 그린 간단한 스케치를 입력으로 받아 특징점을 추출하고 유사한 실제 이미지를 매칭하는 딥러닝 서비스입니다.</p>
-                        <ul class="list-disc ml-5 space-y-1 text-sm">
-                            <li>PyTorch를 사용한 Deep Neural Network 모델 아키텍처 설계</li>
-                            <li>Feature Embedding 추출 및 Vector Similarity(Cosine) 연산 최적화</li>
-                        </ul>
-                    </div>
+                <div class="project-item">
+                    <div class="project-title">스케치 기반 이미지 검색 시스템 (Capstone Project)</div>
+                    <div class="project-meta">세종대학교 2023학년도 2학기 캡스톤 프로젝트 | 2023.09 - 2023.12 | <strong>Python</strong></div>
+                    <ul>
+                        <li>사용자의 스케치를 입력받아 유사한 이미지를 인공지능 기반으로 검색해 주는 서비스 개발.</li>
+                        <li><strong>Links:</strong>
+                            <a href="https://github.com/Serun1017/Capstone-Project-2023_2" target="_blank" class="text-decoration-none"><i class="fab fa-github link-icon" style="color:#333;"></i>GitHub Repo</a> | 
+                            <a href="https://youtube.com/@허진수-t5j" target="_blank" class="text-decoration-none"><i class="fab fa-youtube link-icon" style="color:#e74c3c;"></i>시연 영상</a>
+                        </li>
+                    </ul>
                 </div>
-            </section>
-            
-            <!-- Skills Section -->
-            <section class="skillset">
-                <h2 class="section-title"><i class="fas fa-rocket mr-2"></i>Skills & Proficiency</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-4">
-                    <div class="item">
-                        <h3 class="font-bold text-slate-700 mb-2 uppercase text-xs">AI & Deep Learning</h3>
-                        <div class="level-bar"><div class="level-bar-inner" style="width: 85%;"></div></div>
-                        <p class="text-[10px] mt-1 text-slate-400">PyTorch, DNN, MLP, Computer Vision</p>
-                    </div>
-                    <div class="item">
-                        <h3 class="font-bold text-slate-700 mb-2 uppercase text-xs">Cloud (Azure)</h3>
-                        <div class="level-bar"><div class="level-bar-inner" style="width: 80%;"></div></div>
-                        <p class="text-[10px] mt-1 text-slate-400">Azure Functions, Data Factory, AI Services</p>
-                    </div>
-                    <div class="item">
-                        <h3 class="font-bold text-slate-700 mb-2 uppercase text-xs">Python & Data</h3>
-                        <div class="level-bar"><div class="level-bar-inner" style="width: 90%;"></div></div>
-                        <p class="text-[10px] mt-1 text-slate-400">Numpy, Pandas, Scripting</p>
-                    </div>
-                    <div class="item">
-                        <h3 class="font-bold text-slate-700 mb-2 uppercase text-xs">Technical Writing</h3>
-                        <div class="level-bar"><div class="level-bar-inner" style="width: 95%;"></div></div>
-                        <p class="text-[10px] mt-1 text-slate-400">Velog (80+ Posts), Documentation</p>
-                    </div>
+
+                <div class="project-item">
+                    <div class="project-title">데이터 시각화 및 자동화 미니 프로젝트</div>
+                    <div class="project-meta">개인 프로젝트 | 2026.01 - 2026.02 | <strong>Flask, Leaflet.js, AI</strong></div>
+                    <ul>
+                        <li><strong>Amazon Sales Dashboard (2026.02):</strong> 아마존 판매 데이터셋을 활용해 전 세계 판매 현황을 시각화하는 대시보드 구축.</li>
+                        <li><strong>매일 동화 한 편 (2026.01):</strong> AI 기술을 활용해 매일 새로운 텍스트 이야기와 삽화를 자동 생성하고 기록하는 자동화 파이프라인.</li>
+                        <li><strong>Links:</strong> <a href="https://velog.io/@serun1017" target="_blank" class="text-decoration-none"><i class="fa fa-blog link-icon"></i>Velog 상세 기록</a></li>
+                    </ul>
                 </div>
-            </section>
-            
-            <!-- Other Interests Section -->
-            <section class="mt-10">
-                <h2 class="section-title"><i class="fas fa-pencil-alt mr-2"></i>Technical Blog & Knowledge Sharing</h2>
-                <div class="item">
-                    <p class="text-sm leading-relaxed">
-                        주로 인공지능 알고리즘 탐색 전략(Search Strategies), 트리 탐색, 그리고 컴퓨터 그래픽스 분야를 깊게 파고듭니다. 
-                        단순히 코드를 복사하는 것이 아니라, 동작 원리를 수식과 도식으로 정리하여 <strong>Velog</strong>에 기록하며 동료들과 지식을 나눕니다.
-                    </p>
+
+                <div class="project-item">
+                    <div class="project-title">인공지능 연구 & 게임/그래픽스 엔진 실습</div>
+                    <div class="project-meta">역량 강화 프로젝트 | <strong>PyTorch, C, Java, Unreal 4, Unity</strong></div>
+                    <ul>
+                        <li>PyTorch를 활용한 3-Layer MLP 코드 및 7-layer DNN 스크래치 구현.</li>
+                        <li>A-Star, BFS, DFS 등 다양한 탐색 알고리즘 Python 구현.</li>
+                        <li>C언어 기반 게임 'TheSeeker', Unreal Engine 4 환경 렌더링 '대장간 마을', Java 기반 'WebPainter'.</li>
+                        <li><strong>Links:</strong> 
+                            <a href="https://github.com/Serun1017" target="_blank" class="text-decoration-none"><i class="fab fa-github link-icon" style="color:#333;"></i>GitHub</a> |
+                            <a href="https://youtube.com/@허진수-t5j" target="_blank" class="text-decoration-none"><i class="fab fa-youtube link-icon" style="color:#e74c3c;"></i>YouTube 시연들</a>
+                        </li>
+                    </ul>
                 </div>
-            </section>
+
+            </div>
         </div>
     </div>
-    
-    <footer class="text-center p-8 text-slate-400 text-xs uppercase tracking-widest">
-        <p>&copy; 2026 Heo Jin-su. Created with DevResume-Theme style.</p>
-    </footer>
+</div>
+
+<!-- Bootstrap 5 JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
