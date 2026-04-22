@@ -78,6 +78,7 @@
             color: #2c3e50;
             margin-bottom: 25px;
             padding-bottom: 10px;
+            display: inline-block;
         }
         .section-title::after {
             content: "";
@@ -128,19 +129,6 @@
             padding: 6px 14px;
             border-radius: 20px;
             border: 1px solid #e2e8f0;
-        }
-        .project-category {
-            font-size: 1.25rem;
-            font-weight: 800;
-            color: #2c3e50;
-            margin-top: 40px;
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-        }
-        .project-category i {
-            color: #3498db;
-            margin-right: 10px;
         }
         .project-item {
             margin-bottom: 35px;
@@ -219,6 +207,25 @@
             color: #e74c3c;
             margin-right: 5px;
         }
+        /* 탭 커스텀 스타일 */
+        .nav-tabs .nav-link {
+            border: none;
+            border-bottom: 3px solid transparent;
+            color: #7f8c8d;
+        }
+        .nav-tabs .nav-link:hover {
+            border-color: transparent;
+            color: #3498db;
+        }
+        .nav-tabs .nav-link.active {
+            border: none;
+            border-bottom: 3px solid #3498db;
+            color: #2c3e50 !important;
+            background-color: transparent;
+        }
+        .tab-pane {
+            padding-top: 25px;
+        }
     </style>
 </head>
 <body>
@@ -239,9 +246,9 @@
             <ul class="list-unstyled">
                 <li class="mb-3"><i class="fa fa-envelope me-3 text-info"></i> tjgh219@naver.com</li>
                 <li class="mb-3"><i class="fa fa-phone me-3 text-info"></i> 010-2677-8978</li>
-                <li class="mb-3"><i class="fab fa-github me-3 text-info"></i> <a href="https://github.com/Serun1017" target="_blank">github.com/Serun1017</a></li>
-                <li class="mb-3"><i class="fa fa-blog me-3 text-info"></i> <a href="https://velog.io/@serun1017" target="_blank">velog.io/@serun1017</a><br><small class="text-muted ms-4 d-block">(아키텍처 회고 80+ 포스팅)</small></li>
-                <li class="mb-3"><i class="fab fa-youtube me-3 text-info"></i> <a href="https://youtube.com/@허진수-t5j" target="_blank">youtube.com/@허진수-t5j</a></li>
+                <li class="mb-3"><i class="fab fa-github me-3 text-info"></i> <a href="https://github.com/Serun1017" target="_blank" rel="noopener noreferrer">github.com/Serun1017</a></li>
+                <li class="mb-3"><i class="fa fa-blog me-3 text-info"></i> <a href="https://velog.io/@serun1017" target="_blank" rel="noopener noreferrer">velog.io/@serun1017</a></li>
+                <li class="mb-3"><i class="fab fa-youtube me-3 text-info"></i> <a href="https://youtube.com/@허진수-t5j" target="_blank" rel="noopener noreferrer">youtube.com/@허진수-t5j</a></li>
             </ul>
 
             <div class="sidebar-heading">Education</div>
@@ -275,7 +282,7 @@
             
             <!-- About Me -->
             <div>
-                <h3 class="section-title">About Me</h3>
+                <h3 class="section-title mb-4">About Me</h3>
                 <h5 class="fw-bold text-dark mb-3">"AI와 데이터를 안정적으로 연결하고, 병목 없는 비동기 분산 아키텍처를 설계하는 백엔드 엔지니어"</h5>
                 
                 <div class="summary-box">
@@ -290,7 +297,7 @@
 
             <!-- Tech Stack -->
             <div class="mb-5">
-                <h3 class="section-title">Tech Stack</h3>
+                <h3 class="section-title mb-4">Tech Stack</h3>
                 <div class="skill-group">
                     <div class="skill-group-title"><i class="fa fa-code text-secondary me-2"></i> Languages</div>
                     <div class="skill-badges">
@@ -330,91 +337,113 @@
                 </div>
             </div>
 
-            <!-- Projects -->
+            <!-- Projects (탭 형식 & 포트폴리오 링크 적용) -->
             <div class="mb-4">
-                <h3 class="section-title">Projects</h3>
+                <div class="d-flex justify-content-between align-items-end mb-2">
+                    <h3 class="section-title mb-0">Projects</h3>
+                    <!-- 상세 포트폴리오 새창열기 링크 -->
+                    <a href="portfolio.html" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary btn-sm fw-bold mb-2">
+                        <i class="fas fa-external-link-alt me-1"></i> 상세 포트폴리오 보기
+                    </a>
+                </div>
                 
-                <!-- Main Projects -->
-                <div class="project-category"><i class="fa fa-crosshairs"></i> Core Projects</div>
+                <!-- 탭 메뉴 버튼 -->
+                <ul class="nav nav-tabs mb-4 border-bottom" id="projectTabs" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active fw-bold" id="core-tab" data-bs-toggle="tab" data-bs-target="#core" type="button" role="tab" aria-controls="core" aria-selected="true">
+                            <i class="fa fa-crosshairs me-1"></i> Core Projects
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link fw-bold" id="personal-tab" data-bs-toggle="tab" data-bs-target="#personal" type="button" role="tab" aria-controls="personal" aria-selected="false">
+                            <i class="fa fa-lightbulb me-1"></i> Personal Projects & Research
+                        </button>
+                    </li>
+                </ul>
 
-                <div class="project-item">
-                    <div class="project-title">ACV: Azure 기반 허위정보 실시간 차단 및 검증 솔루션</div>
-                    <div class="project-meta">Microsoft Data School 3기 2차 팀 프로젝트 (Backend / Architect) | 2026.04</div>
-                    <div class="mb-3">
-                        <span class="proj-tech-badge">Python</span>
-                        <span class="proj-tech-badge">FastAPI</span>
-                        <span class="proj-tech-badge">Azure(Databricks)</span>
-                        <span class="proj-tech-badge">Redis</span>
-                        <span class="proj-tech-badge">Groq LPU</span>
-                        <span class="proj-tech-badge">LangGraph</span>
+                <!-- 탭 내용 영역 -->
+                <div class="tab-content" id="projectTabsContent">
+                    
+                    <!-- 1. Core Projects 탭 패널 (기본 표시) -->
+                    <div class="tab-pane fade show active" id="core" role="tabpanel" aria-labelledby="core-tab">
+                        
+                        <div class="project-item">
+                            <div class="project-title">ACV: Azure 기반 허위정보 실시간 차단 및 검증 솔루션</div>
+                            <div class="project-meta">Microsoft Data School 3기 2차 팀 프로젝트 (Backend / Architect) | 2026.04</div>
+                            <div class="mb-3">
+                                <span class="proj-tech-badge">Python</span>
+                                <span class="proj-tech-badge">FastAPI</span>
+                                <span class="proj-tech-badge">Azure(Databricks)</span>
+                                <span class="proj-tech-badge">Redis</span>
+                                <span class="proj-tech-badge">Groq LPU</span>
+                                <span class="proj-tech-badge">LangGraph</span>
+                            </div>
+                            <ul class="project-details">
+                                <li><strong>요약:</strong> 유튜브 영상 내 허위정보를 실시간으로 교차 검증하고 차단하는 멀티 에이전트 기반 비동기 분산 아키텍처 및 API 서버 구축.</li>
+                                <li><span class="achievement-highlight"><i class="fa fa-trophy me-1"></i> 성과:</span> 프로젝트 아키텍처 우수성을 인정받아 참여 팀 중 <strong>전체 1등 달성</strong>.</li>
+                                <li><span class="trouble-highlight"><i class="fa fa-bolt me-1"></i> 동시성 제어:</span> 다중 클라이언트 요청 시 발생하는 중복 연산을 막고자 <strong>Redis 분산 락(Lock)과 Pub/Sub 모델</strong> 도입. 단 1대의 워커만 파이프라인을 가동시켜 대규모 트래픽에도 연산 비용을 상수 O(1)로 고정.</li>
+                                <li><span class="trouble-highlight"><i class="fa fa-filter me-1"></i> 데이터 파이프라인(FinOps):</span> 메달리온 아키텍처(Bronze-Silver-Gold)를 설계하고 정규표현식 3중 필터링을 거쳐 로우 데이터를 고순도로 정제. LLM 환각 방지 및 <strong>전체 토큰 비용 62% 절감</strong> 달성.</li>
+                                <li><span class="trouble-highlight"><i class="fa fa-rocket me-1"></i> 고속 추론 서빙:</span> 기존 GPU 추론 엔진을 토큰 생성에 특화된 Groq LPU로 교체하여 <strong>분석 소요 시간을 평균 22.4초에서 7.6초로 약 65% 단축</strong> (7초 내 실시간 차단 성공).</li>
+                                <li class="mt-2">
+                                    <a href="https://velog.io/@serun1017/프로젝트-ACV-Azure-기반-허위정보-실시간-차단-및-검증-솔루션-1편" target="_blank" rel="noopener noreferrer" class="text-decoration-none fw-bold"><i class="fa fa-book link-icon"></i> Velog 회고 시리즈</a> <span class="mx-2 text-muted">|</span>
+                                    <a href="https://youtube.com/@허진수-t5j" target="_blank" rel="noopener noreferrer" class="text-decoration-none fw-bold"><i class="fab fa-youtube link-icon"></i> 시연 영상</a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="project-item">
+                            <div class="project-title">RadiNow: 실시간 원전 데이터 감시 및 지능형 비상 대응 시스템</div>
+                            <div class="project-meta">Microsoft Data School 3기 1차 팀 프로젝트 | 2026.03</div>
+                            <div class="mb-3">
+                                <span class="proj-tech-badge">Python</span>
+                                <span class="proj-tech-badge">Flask</span>
+                                <span class="proj-tech-badge">Azure Event Hubs/Functions (Serverless)</span>
+                                <span class="proj-tech-badge">PostgreSQL</span>
+                            </div>
+                            <ul class="project-details">
+                                <li><strong>요약:</strong> 실시간 원전 센서 데이터 이상 징후 감지 및 RAG 모델 연동 맞춤형 비상 매뉴얼 자동 전파 관제 대시보드 구축.</li>
+                                <li><span class="achievement-highlight"><i class="fa fa-trophy me-1"></i> 성과:</span> 지능형 비상 대응 로직을 성공적으로 구현하여 <strong>프로젝트 평가 1등 수상</strong>.</li>
+                                <li><span class="trouble-highlight"><i class="fa fa-bolt me-1"></i> 단방향 스트리밍(SSE) 도입:</span> 비정기적인 정부 재난 문자 수신 시 발생하는 불필요한 Polling 부하와 지연(Latency) 문제를 <strong>SSE(Server-Sent Events)</strong>로 전면 교체하여 서버 부하 제로 및 실시간성 확보.</li>
+                                <li><span class="trouble-highlight"><i class="fa fa-bolt me-1"></i> 백그라운드 캐싱 최적화:</span> 다수 클라이언트의 대시보드 접속에 따른 DB 커넥션 초과를 막고자 <strong>APScheduler를 활용한 In-Memory 캐싱</strong>을 적용. 수백 건의 동시 요청에도 O(1) 속도로 응답 처리.</li>
+                                <li><span class="trouble-highlight"><i class="fa fa-bolt me-1"></i> 서버리스 기반 스케일 아웃:</span> API 스트리밍 데이터 유실 방어 및 트래픽 분산을 위해 <strong>Azure Event Hubs 버퍼링 및 Functions 서버리스 구조</strong>로 설계 분리.</li>
+                                <li class="mt-2">
+                                    <a href="https://velog.io/@serun1017/프로젝트-회고-RadiNow-실시간-원전-데이터-감시-및-지능형-비상-대응-시스템-아키텍처-구축기" target="_blank" rel="noopener noreferrer" class="text-decoration-none fw-bold"><i class="fa fa-book link-icon"></i> Velog 회고 시리즈</a> <span class="mx-2 text-muted">|</span>
+                                    <a href="https://youtube.com/@허진수-t5j" target="_blank" rel="noopener noreferrer" class="text-decoration-none fw-bold"><i class="fab fa-youtube link-icon"></i> 시연 영상</a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="project-item">
+                            <div class="project-title">스케치 기반 이미지 검색 시스템 (ZSE-SBIR)</div>
+                            <div class="project-meta">세종대학교 2023학년도 2학기 캡스톤 프로젝트 (Team Leader) | 2023.09 - 2023.12</div>
+                            <div class="mb-3">
+                                <span class="proj-tech-badge">Python</span>
+                                <span class="proj-tech-badge">PyTorch</span>
+                                <span class="proj-tech-badge">GCP (Deep Learning VM)</span>
+                                <span class="proj-tech-badge">ViT</span>
+                            </div>
+                            <ul class="project-details">
+                                <li><strong>요약:</strong> 사용자의 스케치 특징점을 추출해 DB 내 유사도(Distance)가 높은 사진을 반환하는 지능형 검색 서비스 기획 및 AI 파인튜닝.</li>
+                                <li><span class="trouble-highlight"><i class="fa fa-bolt me-1"></i> UI 병목 해결:</span> 무거운 AI 모델 탐색 작업 시 발생하는 인터페이스 정지(Freezing) 현상을 <strong>쓰레드 풀링(Thread Pooling)</strong>을 적용한 병렬 연산으로 해결하여 3초 미만의 원활한 검색 UX 보장.</li>
+                                <li><span class="trouble-highlight"><i class="fa fa-bolt me-1"></i> 정확도 향상:</span> 기존 Object-level 모델 한계 극복을 위해 ViT 기반 구조 도입. GCP 환경에서 10,000장의 FS-COCO 데이터셋 분할 구축 및 재학습(Fine-tuning)을 주도하여 <strong>거리 평균 정확도(유사도)를 0.89에서 0.93으로 개선</strong>.</li>
+                            </ul>
+                        </div>
                     </div>
-                    <ul class="project-details">
-                        <li><strong>요약:</strong> 유튜브 영상 내 허위정보를 실시간으로 교차 검증하고 차단하는 멀티 에이전트 기반 비동기 분산 아키텍처 및 API 서버 구축.</li>
-                        <li><span class="achievement-highlight"><i class="fa fa-trophy me-1"></i> 성과:</span> 프로젝트 아키텍처 우수성을 인정받아 참여 팀 중 <strong>전체 1등 달성</strong>.</li>
-                        <li><span class="trouble-highlight"><i class="fa fa-bolt me-1"></i> 동시성 제어:</span> 다중 클라이언트 요청 시 발생하는 중복 연산을 막고자 <strong>Redis 분산 락(Lock)과 Pub/Sub 모델</strong> 도입. 단 1대의 워커만 파이프라인을 가동시켜 대규모 트래픽에도 연산 비용을 상수 O(1)로 고정.</li>
-                        <li><span class="trouble-highlight"><i class="fa fa-filter me-1"></i> 데이터 파이프라인(FinOps):</span> 메달리온 아키텍처(Bronze-Silver-Gold)를 설계하고 정규표현식 3중 필터링을 거쳐 로우 데이터를 고순도로 정제. LLM 환각 방지 및 <strong>전체 토큰 비용 62% 절감</strong> 달성.</li>
-                        <li><span class="trouble-highlight"><i class="fa fa-rocket me-1"></i> 고속 추론 서빙:</span> 기존 GPU 추론 엔진을 토큰 생성에 특화된 Groq LPU로 교체하여 <strong>분석 소요 시간을 평균 22.4초에서 7.6초로 약 65% 단축</strong> (7초 내 실시간 차단 성공).</li>
-                        <li class="mt-2">
-                            <a href="https://velog.io/@serun1017/프로젝트-ACV-Azure-기반-허위정보-실시간-차단-및-검증-솔루션-1편" target="_blank" class="text-decoration-none fw-bold"><i class="fa fa-book link-icon"></i> Velog 회고 시리즈</a> <span class="mx-2 text-muted">|</span>
-                            <a href="https://www.youtube.com/watch?v=A2tFeSqvHvE" target="_blank" class="text-decoration-none fw-bold"><i class="fab fa-youtube link-icon"></i> 시연 영상</a>
-                        </li>
-                    </ul>
-                </div>
 
-                <div class="project-item">
-                    <div class="project-title">RadiNow: 실시간 원전 데이터 감시 및 지능형 비상 대응 시스템</div>
-                    <div class="project-meta">Microsoft Data School 3기 1차 팀 프로젝트 | 2026.03</div>
-                    <div class="mb-3">
-                        <span class="proj-tech-badge">Python</span>
-                        <span class="proj-tech-badge">Flask</span>
-                        <span class="proj-tech-badge">Azure Event Hubs/Functions (Serverless)</span>
-                        <span class="proj-tech-badge">PostgreSQL</span>
+                    <!-- 2. Personal Projects 탭 패널 (탭 클릭 시 표시) -->
+                    <div class="tab-pane fade" id="personal" role="tabpanel" aria-labelledby="personal-tab">
+                        <div class="project-item">
+                            <div class="project-title">데이터 시각화 및 AI/알고리즘 구현 연구</div>
+                            <div class="project-meta">자기주도적 개발 역량 강화 실습 이력 요약 | 2024 - 2026</div>
+                            <ul class="project-details">
+                                <li><strong>Amazon Sales Dashboard (2026.02):</strong> Flask 기반 글로벌 판매 시각화 대시보드. 데이터 파편화 이슈를 해결하고자 <strong>PostgreSQL에서 <code>RANK()</code> 함수와 SQL View를 직접 생성하여 쿼리를 최적화</strong>함.</li>
+                                <li><strong>매일 동화 한 편 (2026.01):</strong> Ollama(LLM)와 Stable Diffusion을 활용한 텍스트/삽화 자동 생성 파이프라인. Azure Blob Storage와 워드프레스 API 연동을 통한 완전 자동 게시 시스템 구축.</li>
+                                <li><strong>탄탄한 CS 및 그래픽스 연구:</strong> 인공지능(A*, BFS/DFS 알고리즘 구현 및 PyTorch 7-layer DNN 스크래치 구현) 관련 40편, 컴퓨터그래픽스 관련 31편 등 <strong>총 80여 편의 기술적 고민과 원리 분석을 벨로그에 문서화</strong>함.</li>
+                            </ul>
+                        </div>
                     </div>
-                    <ul class="project-details">
-                        <li><strong>요약:</strong> 실시간 원전 센서 데이터 이상 징후 감지 및 RAG 모델 연동 맞춤형 비상 매뉴얼 자동 전파 관제 대시보드 구축.</li>
-                        <li><span class="achievement-highlight"><i class="fa fa-trophy me-1"></i> 성과:</span> 지능형 비상 대응 로직을 성공적으로 구현하여 <strong>프로젝트 평가 1등 수상</strong>.</li>
-                        <li><span class="trouble-highlight"><i class="fa fa-bolt me-1"></i> 단방향 스트리밍(SSE) 도입:</span> 비정기적인 정부 재난 문자 수신 시 발생하는 불필요한 Polling 부하와 지연(Latency) 문제를 <strong>SSE(Server-Sent Events)</strong>로 전면 교체하여 서버 부하 제로 및 실시간성 확보.</li>
-                        <li><span class="trouble-highlight"><i class="fa fa-bolt me-1"></i> 백그라운드 캐싱 최적화:</span> 다수 클라이언트의 대시보드 접속에 따른 DB 커넥션 초과를 막고자 <strong>APScheduler를 활용한 In-Memory 캐싱</strong>을 적용. 수백 건의 동시 요청에도 O(1) 속도로 응답 처리.</li>
-                        <li><span class="trouble-highlight"><i class="fa fa-bolt me-1"></i> 서버리스 기반 스케일 아웃:</span> API 스트리밍 데이터 유실 방어 및 트래픽 분산을 위해 <strong>Azure Event Hubs 버퍼링 및 Functions 서버리스 구조</strong>로 설계 분리.</li>
-                        <li class="mt-2">
-                            <a href="https://velog.io/@serun1017/프로젝트-회고-RadiNow-실시간-원전-데이터-감시-및-지능형-비상-대응-시스템-아키텍처-구축기" target="_blank" class="text-decoration-none fw-bold"><i class="fa fa-book link-icon"></i> Velog 회고 시리즈</a> <span class="mx-2 text-muted">|</span>
-                            <a href="https://www.youtube.com/watch?v=1r4jpVCCyFM&t=42s" target="_blank" class="text-decoration-none fw-bold"><i class="fab fa-youtube link-icon"></i> 시연 영상</a>
-                        </li>
-                    </ul>
-                </div>
 
-                <div class="project-item">
-                    <div class="project-title">스케치 기반 이미지 검색 시스템 (ZSE-SBIR)</div>
-                    <div class="project-meta">세종대학교 2023학년도 2학기 캡스톤 프로젝트 (Team Leader) | 2023.09 - 2023.12</div>
-                    <div class="mb-3">
-                        <span class="proj-tech-badge">Python</span>
-                        <span class="proj-tech-badge">PyTorch</span>
-                        <span class="proj-tech-badge">GCP (Deep Learning VM)</span>
-                        <span class="proj-tech-badge">ViT</span>
-                    </div>
-                    <ul class="project-details">
-                        <li><strong>요약:</strong> 사용자의 스케치 특징점을 추출해 DB 내 유사도(Distance)가 높은 사진을 반환하는 지능형 검색 서비스 기획 및 AI 파인튜닝.</li>
-                        <li><span class="trouble-highlight"><i class="fa fa-bolt me-1"></i> UI 병목 해결:</span> 무거운 AI 모델 탐색 작업 시 발생하는 인터페이스 정지(Freezing) 현상을 <strong>쓰레드 풀링(Thread Pooling)</strong>을 적용한 병렬 연산으로 해결하여 3초 미만의 원활한 검색 UX 보장.</li>
-                        <li><span class="trouble-highlight"><i class="fa fa-bolt me-1"></i> 정확도 향상:</span> 기존 Object-level 모델 한계 극복을 위해 ViT 기반 구조 도입. GCP 환경에서 10,000장의 FS-COCO 데이터셋 분할 구축 및 재학습(Fine-tuning)을 주도하여 <strong>거리 평균 정확도(유사도)를 0.89에서 0.93으로 개선</strong>.</li>
-						<li class="mt-2">
-                            <a href="https://www.youtube.com/watch?v=d6oxhvtsZaA" target="_blank" class="text-decoration-none fw-bold"><i class="fab fa-youtube link-icon"></i> 시연 영상</a>
-                        </li>
-					</ul>
-                </div>
-
-                <!-- Personal Projects -->
-                <div class="project-category"><i class="fa fa-lightbulb"></i> Personal Projects & Research</div>
-
-                <div class="project-item">
-                    <div class="project-title">데이터 시각화 및 AI/알고리즘 구현 연구</div>
-                    <div class="project-meta">자기주도적 개발 역량 강화 실습 이력 요약 | 2024 - 2026</div>
-                    <ul class="project-details">
-                        <li><strong>Amazon Sales Dashboard (2026.02):</strong> Flask 기반 글로벌 판매 시각화 대시보드. 데이터 파편화 이슈를 해결하고자 <strong>PostgreSQL에서 <code>RANK()</code> 함수와 SQL View를 직접 생성하여 쿼리를 최적화</strong>함.</li>
-                        <li><strong>매일 동화 한 편 (2026.01):</strong> Ollama(LLM)와 Stable Diffusion을 활용한 텍스트/삽화 자동 생성 파이프라인. Azure Blob Storage와 워드프레스 API 연동을 통한 완전 자동 게시 시스템 구축.</li>
-                        <li><strong>탄탄한 CS 및 그래픽스 연구:</strong> 인공지능(A*, BFS/DFS 알고리즘 구현 및 PyTorch 7-layer DNN 스크래치 구현) 관련 40편, 컴퓨터그래픽스 관련 31편 등 <strong>총 80여 편의 기술적 고민과 원리 분석을 벨로그에 문서화</strong>함.</li>
-                    </ul>
-                </div>
-
+                </div> <!-- 탭 내용 영역 끝 -->
             </div>
         </div>
     </div>
